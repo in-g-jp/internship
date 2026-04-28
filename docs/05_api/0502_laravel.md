@@ -1,6 +1,19 @@
-# 0204 Laravel プロジェクト作成
+# 0502 Laravel プロジェクト作成
 
-## 1. Laravel installer のインストール
+## 1. Composer のインストール
+
+```bash
+brew install composer
+```
+
+```bash
+composer --version
+# Composer version 2.9.5 ...
+```
+
+---
+
+## 2. Laravel installer のインストール
 
 ```bash
 composer global require laravel/installer
@@ -8,7 +21,7 @@ composer global require laravel/installer
 
 ---
 
-## 2. プロジェクトの作成
+## 3. プロジェクトの作成
 
 ```bash
 laravel new contact-form --database=pgsql
@@ -23,7 +36,7 @@ laravel new contact-form --database=pgsql
 
 ---
 
-## 3. Laravel Sail のインストール
+## 4. Laravel Sail のインストール
 
 ```bash
 cd contact-form
@@ -49,7 +62,7 @@ Which services would you like to install? [mysql]:
 
 ---
 
-## 4. .env の確認
+## 5. .env の確認
 
 `.env` のデータベース設定を確認してください。
 以下のようになっていれば OK です。
@@ -65,12 +78,24 @@ DB_PASSWORD=password
 
 ---
 
-## 5. 最初のコミットとプッシュ
+## 6. GitHub リポジトリの作成
+
+[GitHub](https://github.com) にログインし、新しいリポジトリを作成してください。
+
+| 項目 | 値 |
+|------|------|
+| Repository name | `prefecture-capital-api` |
+| Visibility | Public |
+| Initialize this repository | チェックしない |
+
+---
+
+## 7. 最初のコミットとプッシュ
 
 GitHub のリポジトリと接続して、最初のコミットをプッシュしてください。
 
 ```bash
-git remote add origin https://github.com/<ユーザー名>/contact-form.git
+git remote add origin https://github.com/<ユーザー名>/prefecture-capital-api.git
 git add .
 git commit -m "first commit"
 git push -u origin main
@@ -80,7 +105,7 @@ git push -u origin main
 
 ## チェックリスト
 
-- [ ] `contact-form` ディレクトリに Laravel ファイル一式が作成されている
+- [ ] `prefecture-capital-api` ディレクトリに Laravel ファイル一式が作成されている
 - [ ] `vendor/bin/sail` ファイルが存在している
 - [ ] `.env` の `DB_CONNECTION` が `pgsql` になっている
 - [ ] `docker-compose.yml` に `mailpit` が含まれている
@@ -98,6 +123,7 @@ Laravel のプロジェクトを新規作成し、Docker で動かすための L
 
 | 用語 | 説明 |
 |------|------|
+| Composer | PHP のパッケージマネージャー |
 | Laravel installer | `laravel new` コマンドでプロジェクトを作成できるツール |
 | Laravel | PHP の Web アプリケーションフレームワーク |
 | Laravel Sail | Docker を使って Laravel の開発環境を簡単に構築するツール |

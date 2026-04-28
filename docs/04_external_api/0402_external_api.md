@@ -62,12 +62,58 @@ GitHub ユーザーの情報を取得できる API です。
 
 ---
 
+## 3. ベアラートークン認証
+
+API によっては、リクエスト時に **ベアラートークン** を付与しないとアクセスできないものがあります。
+ここでは GitHub API を使ってベアラートークンの仕組みを体験します。
+
+### ベアラートークンとは
+
+HTTP リクエストの `Authorization` ヘッダーにトークンを付与して認証する方式です。
+
+```
+Authorization: Bearer {トークン}
+```
+
+### Personal Access Token の発行
+
+1. [https://github.com/settings/tokens](https://github.com/settings/tokens) を開く
+2. 「Generate new token」→「Generate new token (classic)」をクリック
+3. 「Note」に任意の名前を入力（例: `postman-test`）
+4. 「Expiration」で有効期限を選択
+5. スコープで `repo` と `read:user` にチェックを入れる
+6. 「Generate token」をクリックしてトークンをコピー（再表示されないので必ず保存）
+
+### Postman でリクエストを送る
+
+認証なしでは取得できない自分のプライベートリポジトリ一覧を取得してみます。
+
+| 項目 | 内容 |
+|------|------|
+| メソッド | `GET` |
+| URL | `https://api.github.com/user/repos` |
+
+Postman の「Authorization」タブで以下を設定してください。
+
+| 項目 | 値 |
+|------|------|
+| Auth Type | `Bearer Token` |
+| Token | 発行したトークンを貼り付け |
+
+送信するとリポジトリ一覧が返ってきます。
+トークンなしで同じリクエストを送ると `401 Unauthorized` が返ることも確認してください。
+
+---
+
 ## チェックリスト
 
 - [ ] Postman をインストールできる
 - [ ] 郵便番号 API で住所を取得できる
 - [ ] GitHub API で自分のユーザー情報を取得できる
 - [ ] OpenWeatherMap API で東京の天気を取得できる
+- [ ] GitHub Personal Access Token を発行できる
+- [ ] ベアラートークンを使って自分のリポジトリ一覧を取得できる
+- [ ] トークンなしで `401 Unauthorized` が返ることを確認できる
 
 ---
 
@@ -82,6 +128,8 @@ GitHub ユーザーの情報を取得できる API です。
 
 - [ ] API キーとは何か、なぜ必要なのか説明できる
 - [ ] クエリパラメータとは何か説明できる
+- [ ] ベアラートークンとはどのような仕組みか説明できる
+- [ ] `401 Unauthorized` はどのような場合に返ってくるか説明できる
 - [ ] レスポンスの JSON をみて、必要なデータがどこにあるか読み取れる
 
 </details>

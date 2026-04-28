@@ -1,4 +1,4 @@
-# 0206 React + Vite セットアップ
+# 0504 React + Vite セットアップ
 
 ## 1. パッケージのインストール
 
@@ -75,7 +75,38 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 
 ---
 
-## 5. Chakra UI のインストール
+## 5. Blade テンプレートの作成
+
+React を表示するための HTML の土台を作ります。
+
+`resources/views/app.blade.php` を新規作成してください。
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+    @vite('resources/ts/main.tsx')
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>
+```
+
+次に `routes/web.php` を以下のように編集してください。
+
+```php
+Route::get('/{any?}', function () {
+    return view('app');
+})->where('any', '.*');
+```
+
+---
+
+## 6. Chakra UI のインストール
 
 ```bash
 sail npm install @chakra-ui/react @emotion/react @emotion/styled framer-motion
@@ -83,7 +114,7 @@ sail npm install @chakra-ui/react @emotion/react @emotion/styled framer-motion
 
 ---
 
-## 6. 開発サーバーの起動
+## 7. 開発サーバーの起動
 
 ```bash
 sail npm run dev
@@ -94,7 +125,7 @@ sail npm run dev
 ## チェックリスト
 
 - [ ] `sail npm run dev` が起動している
-- [ ] ブラウザで `Hello React` が表示される
+- [ ] ブラウザで `http://localhost` を開くと `Hello React` が表示される
 
 ---
 

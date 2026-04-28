@@ -1,10 +1,21 @@
 # 0201 環境構築（CLI ツール）
 
-ターミナルを開いて、以下の手順を進めてください。
+以下の手順を進めてください。
 
 ---
 
-## 1. Homebrew（推奨）
+## 1. Warp（ターミナル）
+
+ターミナルアプリとして **Warp** をおすすめします。
+コマンドの補完や履歴検索が使いやすく、開発効率が上がります。
+
+[https://www.warp.dev/](https://www.warp.dev/) からダウンロードしてインストールしてください。
+
+以降の手順はすべて Warp で実施してください。
+
+---
+
+## 2. Homebrew
 
 [https://brew.sh/ja/](https://brew.sh/ja/) に記載のコマンドをターミナルに貼り付けて実行してください。
 
@@ -15,7 +26,7 @@ brew --version
 
 ---
 
-## 2. Git（推奨）
+## 3. Git
 
 Mac にすでに入っている場合があります。まず確認してください。
 
@@ -32,21 +43,7 @@ brew install git
 
 ---
 
-## 3. Node.js / npm（推奨）
-
-[https://nodejs.org/ja/download](https://nodejs.org/ja/download) から **LTS 版**をダウンロードしてインストールしてください。
-
-```bash
-node --version
-# v24.13.1
-
-npm --version
-# 11.11.0
-```
-
----
-
-## 4. PHP（推奨）
+## 3. PHP
 
 ```bash
 brew install php
@@ -59,27 +56,11 @@ php --version
 
 ---
 
-## 5. Composer（推奨）
-
-```bash
-brew install composer
-```
-
-```bash
-composer --version
-# Composer version 2.9.5 ...
-```
-
----
-
 ## チェックリスト
 
 - [ ] `brew --version` が表示される
 - [ ] `git --version` が表示される
-- [ ] `node --version` が表示される
-- [ ] `npm --version` が表示される
 - [ ] `php --version` が表示される
-- [ ] `composer --version` が表示される
 
 ---
 
@@ -93,12 +74,8 @@ composer --version
 |--------|------|
 | Homebrew | Mac にツールを簡単にインストールできるパッケージマネージャー |
 | Git | コードの変更履歴を管理するバージョン管理ツール |
-| Node.js / npm | JavaScript をサーバーサイドで動かす実行環境とパッケージマネージャー |
 | PHP | Laravel（バックエンド）を動かすプログラミング言語 |
-| Composer | PHP のパッケージマネージャー |
 
 ### 参考資料
 
 - [Git 入門（サル先生のGit入門）](https://backlog.com/ja/git-tutorial/)
-- [Node.js とは（Node.js 公式）](https://nodejs.org/ja/about)
-- [Composer 入門（公式ドキュメント）](https://getcomposer.org/doc/00-intro.md)
