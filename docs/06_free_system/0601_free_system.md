@@ -75,15 +75,11 @@ API 一覧をもとに、必要なテーブルとカラムを設計します。
 API 一覧をもとに、どんな画面が必要かを考えます。
 UI ライブラリを活用して画面を作りましょう。
 
-React で使える UI ライブラリの例として以下があります。
-
-| ライブラリ | 特徴 |
-|------------|------|
-| [Chakra UI](https://chakra-ui.com/) | シンプルで使いやすい。カスタマイズしやすい |
-| [shadcn/ui](https://ui.shadcn.com/) | モダンなデザイン。Tailwind CSS ベース |
-| [MUI（Material UI）](https://mui.com/) | Google の Material Design ベース。コンポーネントが豊富 |
+UI ライブラリには **Chakra UI** を使ってください（05章のセットアップ済み）。
 
 まずは一覧画面・詳細画面など最低限の画面をざっくり作り、バックエンドと繋ぎながら完成度を上げていきましょう。
+
+- [Chakra UI 公式ドキュメント](https://chakra-ui.com/)
 
 ---
 
