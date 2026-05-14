@@ -23,17 +23,15 @@ $ make
 
 ### 2-2. 回答を実装する
 
-作成されたディレクトリの `index.php` に回答を書いてください。
-
-```bash
-$ cd challenges/C001/ing-chiba
-```
+VS Code で作成されたディレクトリ（`challenges/問題番号/自分の名前/`）を開き、`index.php` に回答を書いてください。
 
 ### 2-3. テストを実行する
 
-再度 `make` を実行し、入力ファイルを選択して動作確認します。
+チャレンジディレクトリに移動してから `make` を実行します。
+入力ファイルを選択すると `index.php` が実行されます。
 
 ```bash
+$ cd challenges/C001/ing-kamiya
 $ make
 ```
 
