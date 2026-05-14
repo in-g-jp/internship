@@ -18,12 +18,17 @@ Paiza の回答を管理する専用リポジトリがあります。以下の�
 ```bash
 $ make
 ```
+<img width="448" height="78" alt="スクリーンショット 2026-05-14 10 21 21" src="https://github.com/user-attachments/assets/c2774eb9-4fd5-4f97-a96f-266d6e459252" />
+
 
 問題番号（例: `C001`）を入力すると、`challenges/{問題番号}/{自分の名前}/` ディレクトリが自動で作成されます。
 
 ### 2-2. 回答を実装する
 
 VS Code で作成されたディレクトリ（`challenges/問題番号/自分の名前/`）を開き、`index.php` に回答を書いてください。
+
+<img width="406" height="361" alt="スクリーンショット 2026-05-14 10 24 19" src="https://github.com/user-attachments/assets/00bbd9eb-2ff9-4efc-a1f4-4df8cc3c944b" />
+
 
 ### 2-3. テストを実行する
 
@@ -34,11 +39,26 @@ VS Code で作成されたディレクトリ（`challenges/問題番号/自分�
 $ cd challenges/C001/ing-kamiya
 $ make
 ```
+<img width="336" height="72" alt="スクリーンショット 2026-05-14 11 16 39" src="https://github.com/user-attachments/assets/d3f83027-4901-42ee-a268-a80519e5032b" />
+
+<img width="457" height="70" alt="スクリーンショット 2026-05-14 11 16 53" src="https://github.com/user-attachments/assets/ec2b0b42-9e02-4fe1-9460-5135a0fb09aa" />
+
+
 
 ### 2-4. ブランチを作成する
 
-VS Code の左下にあるブランチ名をクリックし、「新しいブランチの作成」を選択してください。
+VS Code の左上にある変更タブの右端にある三点リーダーをクリックして「チャックアウト先...」を選択してください。
+
+<img width="715" height="601" alt="スクリーンショット 2026-05-14 12 15 01" src="https://github.com/user-attachments/assets/dadac7dc-2bc3-40a9-aeb3-04acec93f1b2" />
+
+新しいブランチの作成をクリックしてブランチ名を入力してください。
+
+<img width="878" height="377" alt="スクリーンショット 2026-05-14 12 15 26" src="https://github.com/user-attachments/assets/85400c85-4606-4ead-87fc-28e072c07d7a" />
+
 ブランチ名は `feature/問題番号` の形式にしてください（例: `feature/C001`）。
+
+<img width="735" height="283" alt="スクリーンショット 2026-05-14 12 15 39" src="https://github.com/user-attachments/assets/a67912f6-8fd9-4e1a-84df-b9482e442b10" />
+
 
 `main` ブランチから作成されていることを確認してください。
 
@@ -46,22 +66,30 @@ VS Code の左下にあるブランチ名をクリックし、「新しいブラ
 
 ### 2-5. README.md に解法メモを書く
 
-`README.md` に問題の解法や考え方をメモしてください。
+`README.md` に問題の解法や考え方があればメモしてください。
 振り返りのときに役立ちます。
 
 ---
 
 ### 2-6. コミット・プッシュする
 
-VS Code のソース管理パネルで `index.php` と `README.md` をステージングしてください。
+VS Code のソース管理パネルの変更タブの＋をクリックして `index.php` と `README.md` をステージングしてください。
 
-コミットメッセージは **「問題番号: 解答にかかった時間」** の形式で入力してください。
+<img width="411" height="231" alt="スクリーンショット 2026-05-14 12 31 36" src="https://github.com/user-attachments/assets/733fb05f-0f15-428f-b913-3598c477e099" />
+
+
+コミットメッセージは **「問題番号: 解答にかかった時間」** の形式で入力し、コミットボタンをクリックしてください
 
 ```
 C001: 9分55秒
 ```
+<img width="401" height="353" alt="スクリーンショット 2026-05-14 12 16 29" src="https://github.com/user-attachments/assets/d4d56db9-e30c-4a83-b163-248411bbc1db" />
+
 
 コミット後、「ブランチの発行」または「変更の同期」をクリックしてリモートにプッシュしてください。
+
+<img width="411" height="277" alt="スクリーンショット 2026-05-14 12 22 17" src="https://github.com/user-attachments/assets/609c924e-ea5b-44b5-99d7-05901611c9c4" />
+
 
 ---
 
