@@ -47,7 +47,7 @@ $ make
 
 ### 2-4. ブランチを作成する
 
-VS Code の左上にある変更タブの右端にある三点リーダーをクリックして「チャックアウト先...」を選択してください。
+VS Code の左上にある変更タブの右端にある三点リーダーをクリックして「チェックアウト先...」を選択してください。
 
 <img width="715" height="601" alt="スクリーンショット 2026-05-14 12 15 01" src="https://github.com/user-attachments/assets/dadac7dc-2bc3-40a9-aeb3-04acec93f1b2" />
 
