@@ -27,7 +27,8 @@ $ make
 
 VS Code で作成されたディレクトリ（`challenges/問題番号/自分の名前/`）を開き、`index.php` に回答を書いてください。
 
-<img width="406" height="361" alt="スクリーンショット 2026-05-14 10 24 19" src="https://github.com/user-attachments/assets/00bbd9eb-2ff9-4efc-a1f4-4df8cc3c944b" />
+<img width="533" height="294" alt="スクリーンショット 2026-05-15 10 34 05" src="https://github.com/user-attachments/assets/4e773d5c-6fcd-4cf0-8800-2ba529f92265" />
+
 
 
 ### 2-3. テストを実行する
@@ -49,7 +50,8 @@ $ make
 
 VS Code の左上にある変更タブの右端にある三点リーダーをクリックして「チェックアウト先...」を選択してください。
 
-<img width="715" height="601" alt="スクリーンショット 2026-05-14 12 15 01" src="https://github.com/user-attachments/assets/dadac7dc-2bc3-40a9-aeb3-04acec93f1b2" />
+<img width="715" height="601" alt="スクリーンショット 2026-05-14 12 15 01" src="https://github.com/user-attachments/assets/ef6c3dd0-d969-4ea2-b3dd-5cd55644c365" />
+
 
 新しいブランチの作成をクリックしてブランチ名を入力してください。
 
@@ -81,7 +83,7 @@ VS Code のソース管理パネルの変更タブの＋をクリックして `i
 コミットメッセージは **「問題番号: 解答にかかった時間」** の形式で入力し、コミットボタンをクリックしてください
 
 ```
-C001: 9分55秒
+C001: 5分20秒
 ```
 <img width="401" height="353" alt="スクリーンショット 2026-05-14 12 16 29" src="https://github.com/user-attachments/assets/d4d56db9-e30c-4a83-b163-248411bbc1db" />
 
@@ -95,12 +97,20 @@ C001: 9分55秒
 
 ### 2-7. Pull Request を作成する
 
-1. GitHub の Paiza リポジトリの「Pull requests」タブを開く
-2. 「New pull request」をクリック
-3. 作成した作業ブランチ（例: `feature/C001`）を選択する
+1. GitHub の Paiza リポジトリの「Pull requests」タブを開き、「New pull request」をクリック
+   <img width="1419" height="634" alt="スクリーンショット 2026-05-15 10 05 13" src="https://github.com/user-attachments/assets/1bf5a70a-dee2-4575-b009-9c810a764191" />
+
+2. 作成した作業ブランチ（例: `feature/C001`）を選択する
+  <img width="1258" height="623" alt="スクリーンショット 2026-05-15 10 08 11" src="https://github.com/user-attachments/assets/6c8a4e9b-3af2-4a49-885c-ba85eed91895" />
+
+3.ファイルの差分が問題なければ「Create pull request」をクリック
+<img width="1401" height="618" alt="スクリーンショット 2026-05-15 10 36 49" src="https://github.com/user-attachments/assets/e01eb8fb-a220-4d7d-817b-759ee702d2b1" />
+
 4. 「Conversation」欄に **Paiza で問題を解いた結果画面のスクリーンショット** を貼り付ける
 5. 画面右側の「Reviewers」で **神谷** を選択する
 6. 「Create pull request」をクリックして PR を作成する
+
+<img width="1390" height="708" alt="スクリーンショット 2026-05-15 10 45 52" src="https://github.com/user-attachments/assets/26d75127-37c4-4ff1-92dc-b268d7c75930" />
 
 ---
 
