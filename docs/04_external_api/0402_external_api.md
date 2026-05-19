@@ -10,7 +10,7 @@ Postman を使って実際の外部 API にリクエストを送り、データ�
 ## 1. Postman のインストール
 
 [https://www.postman.com/downloads/](https://www.postman.com/downloads/) からダウンロードしてインストールしてください。
-アカウント登録を求められますが、「Skip and go to the app」でスキップできます。
+アカウント登録を求められるので、GoogleやGitHubのアカウントを用いて新規作成してください。
 
 ---
 
