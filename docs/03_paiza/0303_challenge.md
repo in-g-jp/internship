@@ -106,7 +106,7 @@ C001: 5分20秒
 3.ファイルの差分が問題なければ「Create pull request」をクリック
 <img width="1401" height="618" alt="スクリーンショット 2026-05-15 10 36 49" src="https://github.com/user-attachments/assets/e01eb8fb-a220-4d7d-817b-759ee702d2b1" />
 
-4. 「Conversation」欄に **Paiza で問題を解いた結果画面のスクリーンショット** を貼り付ける
+4. 「Conversation」欄に **回答した問題の問題文のスクリーンショット** を貼り付ける
 5. 画面右側の「Reviewers」で **神谷** を選択する
 6. 「Create pull request」をクリックして PR を作成する
 
