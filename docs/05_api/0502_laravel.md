@@ -45,15 +45,18 @@ php artisan sail:install
 
 > 📖 [Laravel Sail（公式ドキュメント）](https://readouble.com/laravel/13.x/ja/sail.html)
 
-サービスの選択肢が表示されるので `pgsql` と `mailpit` の2つを選択してください。(スペースを押下すると選択できます。)
+サービスの選択肢が表示されるので`mysql`のチェックを外してください。
+次に、 `pgsql` と `mailpit` の2つを選択してください。
+(スペースを押下すると選択できます。)
 
 ```
 Which services would you like to install? [mysql]:
   ◻︎ mysql
-  ◻︎ pgsql
+  ◾ pgsql
   ...
-  ◻︎ mailpit
+  ◾ mailpit
   ...
+```
 
 > Mailpit はメール送信のテストに使うツールです。実際には送信されず、ブラウザで内容を確認できます。
 
