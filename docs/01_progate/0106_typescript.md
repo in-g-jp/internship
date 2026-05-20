@@ -45,6 +45,8 @@ TypeScript の基本となる型です。まずこの7種類を覚えましょ�
 
 実務でよく使うのは `string`・`number`・`boolean`・`null`・`undefined` の5つです。
 
+参考：[プリミティブ型 | サバイバルTypeScript](https://typescriptbook.jp/reference/values-types-variables/primitive-types)
+
 ### 基本的な型
 
 変数名の後ろに `: 型名` と書くことで型を指定します。
@@ -54,6 +56,8 @@ let name: string = '太郎'      // 文字列
 let age: number = 25           // 数値
 let isStudent: boolean = true  // true / false
 ```
+
+参考：[型注釈 | サバイバルTypeScript](https://typescriptbook.jp/reference/values-types-variables/type-annotation)
 
 ### 型推論
 
@@ -67,6 +71,8 @@ let age = 25       // 自動で number 型と判断される
 name = 123  // ❌ エラー：一度 string と判断されたので number は入れられない
 ```
 
+参考：[型推論 | サバイバルTypeScript](https://typescriptbook.jp/reference/values-types-variables/type-inference)
+
 ### 関数の型
 
 引数と戻り値にも型を指定できます。
@@ -79,6 +85,8 @@ function greet(name: string): string {
 
 greet(123)  // ❌ エラー：string を渡す必要があります
 ```
+
+参考：[関数のパラメーター | サバイバルTypeScript](https://typescriptbook.jp/reference/functions/function-parameters)
 
 ### オブジェクト型
 
@@ -97,6 +105,8 @@ let user2: { name: string; email?: string } = {
 }
 ```
 
+参考：[オブジェクト型 | サバイバルTypeScript](https://typescriptbook.jp/reference/values-types-variables/object)
+
 ### 配列型
 
 ```ts
@@ -105,6 +115,8 @@ let names: string[] = ['太郎', '花子']
 
 numbers.push('hello')  // ❌ エラー：number[] に string は入れられない
 ```
+
+参考：[配列 | サバイバルTypeScript](https://typescriptbook.jp/reference/values-types-variables/array)
 
 ### ユニオン型
 
@@ -127,6 +139,8 @@ let value: StringOrNumber = 'hello'  // ✅
 value = 42                           // ✅
 ```
 
+参考：[ユニオン型 | サバイバルTypeScript](https://typescriptbook.jp/reference/values-types-variables/union)
+
 ### インターフェース
 
 オブジェクトの型をまとめて定義できます。
@@ -147,6 +161,8 @@ const hanako: User = { name: '花子', age: 22, email: 'hanako@example.com' }
 const invalid: User = { name: '次郎' }  // ❌ age が足りない
 ```
 
+参考：[インターフェース | サバイバルTypeScript](https://typescriptbook.jp/reference/object-oriented/interface)
+
 ### ジェネリクス
 
 「型を引数のように渡せる」仕組みです。
@@ -163,6 +179,8 @@ firstItem<number>([1, 2, 3])        // 戻り値は number
 ```
 
 React の `useState` もジェネリクスを使っています（後述）。
+
+参考：[ジェネリクス | サバイバルTypeScript](https://typescriptbook.jp/reference/generics)
 
 ---
 
