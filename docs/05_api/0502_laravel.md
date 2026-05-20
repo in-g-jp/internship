@@ -24,7 +24,7 @@ composer global require laravel/installer
 ## 3. プロジェクトの作成
 
 ```bash
-laravel new contact-form --database=pgsql
+laravel new prefecture-capital-api --database=pgsql
 ```
 
 コマンドを実行するといくつか質問されます。以下の通り選択してください。
@@ -39,24 +39,21 @@ laravel new contact-form --database=pgsql
 ## 4. Laravel Sail のインストール
 
 ```bash
-cd contact-form
+cd prefecture-capital-api
 php artisan sail:install
 ```
 
-> 📖 [Laravel Sail（公式ドキュメント）](https://readouble.com/laravel/12.x/ja/sail.html)
+> 📖 [Laravel Sail（公式ドキュメント）](https://readouble.com/laravel/13.x/ja/sail.html)
 
-サービスの選択肢が表示されるので `pgsql` と `mailpit` を選択してください。
-複数選択はカンマ区切りで入力します。
+サービスの選択肢が表示されるので `pgsql` と `mailpit` の2つを選択してください。(スペースを押下すると選択できます。)
 
 ```
 Which services would you like to install? [mysql]:
-  [0] mysql
-  [1] pgsql
+  ◻︎ mysql
+  ◻︎ pgsql
   ...
-  [8] mailpit
+  ◻︎ mailpit
   ...
-> 1,8
-```
 
 > Mailpit はメール送信のテストに使うツールです。実際には送信されず、ブラウザで内容を確認できます。
 
@@ -133,5 +130,5 @@ Laravel のプロジェクトを新規作成し、Docker で動かすための L
 
 ### 参考資料
 
-- [Laravel インストール（公式ドキュメント）](https://laravel.com/docs/12.x/installation)
-- [Laravel Sail 公式ドキュメント](https://readouble.com/laravel/12.x/ja/sail.html)
+- [Laravel インストール（公式ドキュメント）](https://laravel.com/docs/13.x/installation)
+- [Laravel Sail 公式ドキュメント](https://readouble.com/laravel/13.x/ja/sail.html)
