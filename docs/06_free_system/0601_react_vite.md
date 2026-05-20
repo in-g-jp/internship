@@ -1,4 +1,4 @@
-# 0504 React + Vite セットアップ
+# 0601 React + Vite セットアップ
 
 ## 1. パッケージのインストール
 
@@ -133,7 +133,15 @@ sail npm run dev
 
 ### 今何をしたか
 
-Laravel に React + TypeScript のフロントエンド環境を組み込みました。
+Laravel プロジェクトに React + TypeScript のフロントエンド環境を導入し、Chakra UI を使って画面を作れる状態にしました。
+
+具体的には以下の設定を行いました。
+
+- 必要なパッケージ（React・TypeScript・Vite プラグイン・Chakra UI）をインストール
+- `vite.config.ts` に React プラグインを追加
+- `tsconfig.json` で TypeScript のコンパイル設定を定義
+- `resources/ts/main.tsx` をエントリーポイントとして作成
+- Blade テンプレートと routing を設定してブラウザで React が表示されるようにした
 
 | 用語 | 説明 |
 |------|------|
@@ -142,6 +150,8 @@ Laravel に React + TypeScript のフロントエンド環境を組み込みま�
 | TypeScript | JavaScript に型を追加した言語。バグを事前に防ぎやすくなる |
 | Chakra UI | React 用の UI コンポーネントライブラリ |
 | tsconfig.json | TypeScript のコンパイル設定ファイル |
+| エントリーポイント | アプリケーションの起点となるファイル。ここでは `main.tsx` |
+| Blade テンプレート | Laravel のテンプレートエンジン。React の表示先 HTML を定義する |
 
 ### 参考資料
 
