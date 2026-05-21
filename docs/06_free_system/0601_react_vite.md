@@ -4,9 +4,11 @@
 
 ```bash
 sail npm install
-sail npm install react react-dom
+sail npm install react react-dom react-router @chakra-ui/react @emotion/react
 sail npm install --save-dev @vitejs/plugin-react @types/react @types/react-dom typescript
 ```
+
+Chakra UI は v3 を使用します（v2 と異なり `@emotion/styled` や `framer-motion` は不要です）。ルーティングには [react-router](https://reactrouter.com/) v7 を使用します。
 
 ---
 
@@ -70,7 +72,7 @@ sail npx tsc --init
 
 ---
 
-## 4. エントリーポイントの作成
+## 4. ルーターの定義
 
 Laravel デフォルトの `resources/js` は使わないため削除し、TypeScript 用のディレクトリを作成します。
 
@@ -79,17 +81,37 @@ rm -rf resources/js
 mkdir -p resources/ts
 ```
 
-`resources/ts/main.tsx` を作成してください（後の手順で Chakra UI を使うため `ChakraProvider` でラップしています）。
+`resources/ts/router.tsx` を作成してください。`createBrowserRouter` で経路を定義します。
+
+```tsx
+import { createBrowserRouter } from 'react-router'
+import { Button } from '@chakra-ui/react'
+
+export const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <Button colorPalette="teal">Hello React Router</Button>,
+    },
+])
+```
+
+---
+
+## 5. エントリーポイントの作成
+
+`resources/ts/main.tsx` を作成してください。`ChakraProvider` で Chakra UI、`RouterProvider` で React Router を有効化します。
 
 ```tsx
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { ChakraProvider, defaultSystem, Button } from '@chakra-ui/react'
+import { ChakraProvider, defaultSystem } from '@chakra-ui/react'
+import { RouterProvider } from 'react-router'
+import { router } from './router'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
         <ChakraProvider value={defaultSystem}>
-            <Button colorPalette="teal">Hello React</Button>
+            <RouterProvider router={router} />
         </ChakraProvider>
     </React.StrictMode>
 )
@@ -97,7 +119,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 
 ---
 
-## 5. Blade テンプレートの作成
+## 6. Blade テンプレートの作成
 
 React を表示するための HTML の土台を作ります。
 
@@ -135,16 +157,6 @@ use Illuminate\Support\Facades\Route;
 
 ---
 
-## 6. Chakra UI のインストール
-
-Chakra UI v3 を使用します。v2 と異なり `@emotion/styled` や `framer-motion` は不要です。
-
-```bash
-sail npm install @chakra-ui/react @emotion/react
-```
-
----
-
 ## 7. 開発サーバーの起動
 
 ```bash
@@ -156,7 +168,7 @@ sail npm run dev
 ## チェックリスト
 
 - [ ] `sail npm run dev` が起動している
-- [ ] ブラウザで `http://localhost` を開くと Chakra UI のボタンで `Hello React` が表示される
+- [ ] ブラウザで `http://localhost` を開くと Chakra UI のボタンで `Hello React Router` が表示される
 
 ---
 
@@ -164,14 +176,15 @@ sail npm run dev
 
 ### 今何をしたか
 
-Laravel プロジェクトに React + TypeScript のフロントエンド環境を導入し、Chakra UI を使って画面を作れる状態にしました。
+Laravel プロジェクトに React + TypeScript のフロントエンド環境を導入し、Chakra UI と React Router を使って画面を作れる状態にしました。
 
 具体的には以下の設定を行いました。
 
-- 必要なパッケージ（React・TypeScript・Vite プラグイン・Chakra UI）をインストール
+- 必要なパッケージ（React・TypeScript・Vite プラグイン・Chakra UI・React Router）をインストール
 - `vite.config.js` を `vite.config.ts` にリネームし、React プラグインを追加
 - `tsconfig.json` で TypeScript のコンパイル設定を定義
-- `resources/ts/main.tsx` をエントリーポイントとして作成し、`ChakraProvider` でラップ
+- `resources/ts/router.tsx` で `createBrowserRouter` による経路を定義
+- `resources/ts/main.tsx` をエントリーポイントとして作成し、`ChakraProvider` と `RouterProvider` でラップ
 - Blade テンプレートと routing を設定してブラウザで React が表示されるようにした
 
 | 用語 | 説明 |
@@ -180,6 +193,7 @@ Laravel プロジェクトに React + TypeScript のフロントエンド環境�
 | React | UI を構築するための JavaScript ライブラリ |
 | TypeScript | JavaScript に型を追加した言語。バグを事前に防ぎやすくなる |
 | Chakra UI | React 用の UI コンポーネントライブラリ |
+| React Router | React アプリの画面遷移（クライアントサイドルーティング）を管理するライブラリ |
 | tsconfig.json | TypeScript のコンパイル設定ファイル |
 | エントリーポイント | アプリケーションの起点となるファイル。ここでは `main.tsx` |
 | Blade テンプレート | Laravel のテンプレートエンジン。React の表示先 HTML を定義する |
@@ -190,3 +204,4 @@ Laravel プロジェクトに React + TypeScript のフロントエンド環境�
 - [React 公式ドキュメント（日本語）](https://ja.react.dev/)
 - [TypeScript 入門](https://www.typescriptlang.org/ja/docs/)
 - [Chakra UI 公式ドキュメント](https://chakra-ui.com/getting-started)
+- [React Router 公式ドキュメント](https://reactrouter.com/)
