@@ -3,9 +3,9 @@
 ## 1. パッケージのインストール
 
 ```bash
-sail npm install
-sail npm install react react-dom react-router @chakra-ui/react @emotion/react
-sail npm install --save-dev @vitejs/plugin-react @types/react @types/react-dom typescript
+sail npm i
+sail npm i react react-dom react-router @chakra-ui/react @emotion/react
+sail npm i -D @vitejs/plugin-react @types/react @types/react-dom typescript
 ```
 
 Chakra UI は v3 を使用します（v2 と異なり `@emotion/styled` や `framer-motion` は不要です）。ルーティングには [react-router](https://reactrouter.com/) v7 を使用します。
