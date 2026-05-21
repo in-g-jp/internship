@@ -86,21 +86,9 @@ php artisan sail:install
  └──────────────────────────────────────────────────────────────┘
 ```
 
-インストール後、マイグレーションを実行します。
-
-```bash
-./vendor/bin/sail artisan migrate
-```
-
 ---
 
-## 5. 画面表示の確認
-
-ブラウザで [http://localhost](http://localhost) を開き、Laravel のウェルカム画面が表示されることを確認してください。
-
----
-
-## 6. GitHub リポジトリの作成
+## 5. GitHub リポジトリの作成
 
 [GitHub](https://github.com) にログインし、新しいリポジトリを作成してください。
 
@@ -112,7 +100,7 @@ php artisan sail:install
 
 ---
 
-## 7. 最初のコミットとプッシュ
+## 6. 最初のコミットとプッシュ
 
 GitHub のリポジトリと接続して、最初のコミットをプッシュしてください。
 
@@ -129,7 +117,6 @@ git push -u origin main
 
 - [ ] `prefecture-capital-api` ディレクトリに Laravel ファイル一式が作成されている
 - [ ] `vendor/bin/sail` ファイルが存在している
-- [ ] `http://localhost` で Laravel のウェルカム画面が表示される
 - [ ] `git log --oneline` でコミットが確認できる
 - [ ] GitHub にプッシュされている
 
