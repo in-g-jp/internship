@@ -4,16 +4,21 @@
 
 ```bash
 sail npm install
-sail npm install --save-dev @vitejs/plugin-react
 sail npm install react react-dom
-sail npm install --save-dev @types/react @types/react-dom typescript
+sail npm install --save-dev @vitejs/plugin-react @types/react @types/react-dom typescript
 ```
 
 ---
 
 ## 2. vite.config.ts の更新
 
-`vite.config.ts` を以下のように編集してください。
+Laravel デフォルトでは `vite.config.js` が生成されているため、TypeScript で扱えるようにリネームしてください。
+
+```bash
+mv vite.config.js vite.config.ts
+```
+
+リネームしたら、以下のように編集してください。
 
 ```ts
 import { defineConfig } from 'vite'
@@ -48,7 +53,7 @@ export default defineConfig({
         "strict": true,
         "skipLibCheck": true
     },
-    "include": ["resources/ts"]
+    "include": ["resources/ts", "vite.config.ts"]
 }
 ```
 
@@ -56,19 +61,25 @@ export default defineConfig({
 
 ## 4. エントリーポイントの作成
 
+Laravel デフォルトの `resources/js` は使わないため削除し、TypeScript 用のディレクトリを作成します。
+
 ```bash
+rm -rf resources/js
 mkdir -p resources/ts
 ```
 
-`resources/ts/main.tsx` を作成してください。
+`resources/ts/main.tsx` を作成してください（後の手順で Chakra UI を使うため `ChakraProvider` でラップしています）。
 
 ```tsx
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { ChakraProvider, defaultSystem, Button } from '@chakra-ui/react'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-        <div>Hello React</div>
+        <ChakraProvider value={defaultSystem}>
+            <Button colorPalette="teal">Hello React</Button>
+        </ChakraProvider>
     </React.StrictMode>
 )
 ```
@@ -96,7 +107,7 @@ React を表示するための HTML の土台を作ります。
 </html>
 ```
 
-次に `routes/web.php` を以下のように編集してください。
+次に `routes/web.php` を以下のように編集してください。すべての web ルートを `app.blade.php` に流す設定です。Laravel デフォルトの `/` welcome ルートはこの記述で上書きされます。
 
 ```php
 Route::get('/{any?}', function () {
@@ -108,8 +119,10 @@ Route::get('/{any?}', function () {
 
 ## 6. Chakra UI のインストール
 
+Chakra UI v3 を使用します。v2 と異なり `@emotion/styled` や `framer-motion` は不要です。
+
 ```bash
-sail npm install @chakra-ui/react @emotion/react @emotion/styled framer-motion
+sail npm install @chakra-ui/react @emotion/react
 ```
 
 ---
@@ -125,7 +138,7 @@ sail npm run dev
 ## チェックリスト
 
 - [ ] `sail npm run dev` が起動している
-- [ ] ブラウザで `http://localhost` を開くと `Hello React` が表示される
+- [ ] ブラウザで `http://localhost` を開くと Chakra UI のボタンで `Hello React` が表示される
 
 ---
 
@@ -138,9 +151,9 @@ Laravel プロジェクトに React + TypeScript のフロントエンド環境�
 具体的には以下の設定を行いました。
 
 - 必要なパッケージ（React・TypeScript・Vite プラグイン・Chakra UI）をインストール
-- `vite.config.ts` に React プラグインを追加
+- `vite.config.js` を `vite.config.ts` にリネームし、React プラグインを追加
 - `tsconfig.json` で TypeScript のコンパイル設定を定義
-- `resources/ts/main.tsx` をエントリーポイントとして作成
+- `resources/ts/main.tsx` をエントリーポイントとして作成し、`ChakraProvider` でラップ
 - Blade テンプレートと routing を設定してブラウザで React が表示されるようにした
 
 | 用語 | 説明 |
