@@ -71,41 +71,32 @@ laravel new prefecture-capital-api
 
 ```bash
 cd prefecture-capital-api
+composer require laravel/sail --dev
 php artisan sail:install
 ```
 
-> 📖 [Laravel Sail（公式ドキュメント）](https://readouble.com/laravel/13.x/ja/sail.html)
+> 📖 [Laravel Sail（公式ドキュメント）](https://laravel.com/docs/13.x/sail)
 
-サービスの選択肢が表示されるので`mysql`のチェックを外してください。
-次に、 `pgsql` と `mailpit` の2つを選択してください。
-(スペースを押下すると選択できます。)
+サービスの選択肢が表示されるので、デフォルトでチェックが入っている `mysql` を外し、`pgsql` のみを選択してください。
+(スペースを押下すると選択を切り替えられます。)
 
 ```
-Which services would you like to install? [mysql]:
-  ◻︎ mysql
-  ◾ pgsql
-  ...
-  ◾ mailpit
-  ...
+ ┌ Which services would you like to install? ───────────────────┐
+ │ pgsql                                                        │
+ └──────────────────────────────────────────────────────────────┘
 ```
 
-> Mailpit はメール送信のテストに使うツールです。実際には送信されず、ブラウザで内容を確認できます。
+インストール後、マイグレーションを実行します。
+
+```bash
+./vendor/bin/sail artisan migrate
+```
 
 ---
 
-## 5. .env の確認
+## 5. 画面表示の確認
 
-`.env` のデータベース設定を確認してください。
-以下のようになっていれば OK です。
-
-```env
-DB_CONNECTION=pgsql
-DB_HOST=pgsql
-DB_PORT=5432
-DB_DATABASE=laravel
-DB_USERNAME=sail
-DB_PASSWORD=password
-```
+ブラウザで [http://localhost](http://localhost) を開き、Laravel のウェルカム画面が表示されることを確認してください。
 
 ---
 
@@ -138,8 +129,7 @@ git push -u origin main
 
 - [ ] `prefecture-capital-api` ディレクトリに Laravel ファイル一式が作成されている
 - [ ] `vendor/bin/sail` ファイルが存在している
-- [ ] `.env` の `DB_CONNECTION` が `pgsql` になっている
-- [ ] `docker-compose.yml` に `mailpit` が含まれている
+- [ ] `http://localhost` で Laravel のウェルカム画面が表示される
 - [ ] `git log --oneline` でコミットが確認できる
 - [ ] GitHub にプッシュされている
 
@@ -158,11 +148,9 @@ Laravel のプロジェクトを新規作成し、Docker で動かすための L
 | Laravel installer | `laravel new` コマンドでプロジェクトを作成できるツール |
 | Laravel | PHP の Web アプリケーションフレームワーク |
 | Laravel Sail | Docker を使って Laravel の開発環境を簡単に構築するツール |
-| .env | アプリケーションの設定ファイル。DB 接続情報などを記載する |
-| Mailpit | 開発環境でメール送信をテストするツール。実際には送信されず画面で確認できる |
 | `git remote add` | ローカルリポジトリとリモートリポジトリ（GitHub）を接続するコマンド |
 
 ### 参考資料
 
 - [Laravel インストール（公式ドキュメント）](https://laravel.com/docs/13.x/installation)
-- [Laravel Sail 公式ドキュメント](https://readouble.com/laravel/13.x/ja/sail.html)
+- [Laravel Sail 公式ドキュメント](https://laravel.com/docs/13.x/sail)
