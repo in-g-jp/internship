@@ -24,15 +24,46 @@ composer global require laravel/installer
 ## 3. プロジェクトの作成
 
 ```bash
-laravel new prefecture-capital-api --database=pgsql
+laravel new prefecture-capital-api
 ```
 
 コマンドを実行するといくつか質問されます。以下の通り選択してください。
 
-| 質問 | 選択 |
-|------|------|
-| Which starter kit would you like to install? | `No starter kit` |
-| Would you like to run the default database migrations? | `No` |
+```
+ ┌ Which starter kit would you like to install? ────────────────┐
+ │ None                                                         │
+ └──────────────────────────────────────────────────────────────┘
+```
+
+```
+ ┌ Which testing framework do you prefer? ──────────────────────┐
+ │ PHPUnit                                                      │
+ └──────────────────────────────────────────────────────────────┘
+```
+
+```
+ ┌ Do you want to install Laravel Boost to improve AI assisted coding? ┐
+ │ No                                                                  │
+ └─────────────────────────────────────────────────────────────────────┘
+```
+
+```
+ ┌ Which database will your application use? ───────────────────┐
+ │ PostgreSQL                                                   │
+ └──────────────────────────────────────────────────────────────┘
+```
+
+```
+ ┌ Default database updated. Would you like to run the default database migrations? ┐
+ │ No                                                                               │
+ └──────────────────────────────────────────────────────────────────────────────────┘
+```
+
+```
+ ┌ Would you like to run npm install --ignore-scripts and npm run build? ┐
+ │ No                                                                    │
+ └───────────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
