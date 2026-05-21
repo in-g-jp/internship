@@ -40,7 +40,13 @@ export default defineConfig({
 
 ## 3. tsconfig.json の作成
 
-プロジェクトルートに `tsconfig.json` を作成してください。
+TypeScript の CLI で雛形を生成します。
+
+```bash
+sail npx tsc --init
+```
+
+生成された `tsconfig.json` の中身を、以下の内容で全て置き換えてください。
 
 ```json
 {
