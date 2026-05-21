@@ -120,10 +120,17 @@ React を表示するための HTML の土台を作ります。
 
 次に `routes/web.php` を以下のように編集してください。すべての web ルートを `app.blade.php` に流す設定です。Laravel デフォルトの `/` welcome ルートはこの記述で上書きされます。
 
-```php
-Route::get('/{any?}', function () {
-    return view('app');
-})->where('any', '.*');
+```diff
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+- Route::get('/', function () {
+-     return view('welcome');
+- });
++ Route::get('/{any?}', function () {
++     return view('app');
++ })->where('any', '.*');
 ```
 
 ---
