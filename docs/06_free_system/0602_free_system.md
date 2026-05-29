@@ -118,18 +118,57 @@ sail artisan migrate
 
 #### 5-2. モデルの作成
 
-```bash
-sail artisan make:model Recipe
-```
+**モデルとは？**
 
-`app/Models/Recipe.php` に `fillable` を設定してください。
+モデルは、データベースのテーブルと PHP のコードを紐づける役割を持つファイルです。
+モデルを作成することで、SQL を直接書かずに PHP のコードでデータの取得・作成・更新・削除ができるようになります。
+
+例えば `Recipe` モデルを作ると、以下のように書けます。
 
 ```php
-protected $fillable = [
-    'title',
-    'description',
-    'cooking_time',
-];
+// レシピを全件取得する
+Recipe::all();
+
+// レシピを1件作成する
+Recipe::create(['title' => 'カレー', 'cooking_time' => 30]);
+
+// id が 1 のレシピを取得する
+Recipe::find(1);
+```
+
+モデルファイルは `app/Models/` に作成されます。
+
+Recipe モデルと同時にマイグレーション・ファクトリ・シーダーを作成してください。
+
+```bash
+sail artisan make:model Recipe -mfs
+```
+
+**`-m`（マイグレーション）**
+
+`database/migrations/` にマイグレーションファイルが作成されます。
+テーブルのカラム定義を記述し、`sail artisan migrate` を実行することでDBにテーブルが作成されます。
+
+**`-f`（ファクトリ）**
+
+`database/factories/` にファクトリファイルが作成されます。
+テスト用のダミーデータを簡単に生成するための仕組みです。
+たとえば開発中に「レシピを100件まとめて作りたい」といった場面で活用できます。
+
+```php
+// レシピのダミーデータを10件作成する
+Recipe::factory()->count(10)->create();
+```
+
+**`-s`（シーダー）**
+
+`database/seeders/` にシーダーファイルが作成されます。
+データベースに初期データを投入するための仕組みです。
+`sail artisan db:seed` を実行することでシーダーに書いた内容がDBに登録されます。
+
+```bash
+# シーダーを実行してDBに初期データを投入する
+sail artisan db:seed
 ```
 
 ---
