@@ -15,6 +15,7 @@
 | 05 | `docs/05_api/` | Laravel を使った API 開発 |
 | 06 | `docs/06_free_system/` | 自由課題システムの作成 |
 | 07 | `docs/07_tips/` | 実装時のヒント集 |
+| 08 | `docs/08_udemy/` | Udemy 講座の視聴ガイド |
 
 ---
 
