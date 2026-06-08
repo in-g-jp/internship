@@ -1,4 +1,4 @@
-# 0716 実装のチップス - useMutation のエラーハンドリング
+# 0717 実装のチップス - useMutation の onError を使った API エラーハンドリング
 
 ## API エラーを画面に表示する
 
@@ -77,31 +77,14 @@ const { mutate } = useMutation({
 
 ---
 
-## 3. 成功後にキャッシュを更新する
-
-`onSuccess` で `invalidateQueries` を呼ぶと、関連するデータを再取得できます。
-
-```tsx
-import { useMutation, useQueryClient } from '@tanstack/react-query'
-
-const queryClient = useQueryClient()
-
-const { mutate } = useMutation({
-    mutationFn: createItem,
-    onSuccess: () => {
-        // 一覧データのキャッシュを無効化して再フェッチ
-        queryClient.invalidateQueries({ queryKey: ['items'] })
-    },
-})
-```
-
----
-
 ## チェックリスト
 
 - [ ] `onError` でエラーメッセージを画面に表示できる
 - [ ] Laravel の 422 エラーのフィールドごとのメッセージを取り出せる
-- [ ] `onSuccess` でキャッシュを更新して一覧を再取得できる
+
+---
+
+成功後のキャッシュ更新（`invalidateQueries`）については [0713 React Query](./0713_react_query.md) を参照してください。
 
 ---
 

@@ -1,4 +1,4 @@
-# 0705 実装のチップス - フロントエンドバリデーション
+# 0707 実装のチップス - フロントエンドバリデーション（Zod + React Hook Form）
 
 ## 1. ライブラリのインストール
 
@@ -9,6 +9,8 @@ sail npm install react-hook-form zod @hookform/resolvers
 ---
 
 ## 2. Zod スキーマの定義
+
+### お問い合わせフォーム
 
 `resources/ts/pages/contact/contactSchema.ts` を作成してください。
 
@@ -26,6 +28,24 @@ export const contactSchema = z.object({
 })
 
 export type ContactFormValues = z.infer<typeof contactSchema>
+```
+
+### ログインフォーム
+
+`resources/ts/pages/auth/loginSchema.ts` を作成してください。
+
+```ts
+import { z } from 'zod'
+
+export const loginSchema = z.object({
+    email: z
+        .string()
+        .min(1, 'メールアドレスは必須です。')
+        .email('メールアドレスの形式が正しくありません。'),
+    password: z.string().min(1, 'パスワードは必須です。'),
+})
+
+export type LoginFormValues = z.infer<typeof loginSchema>
 ```
 
 ---
@@ -60,9 +80,16 @@ const {
 
 ## チェックリスト
 
+**お問い合わせフォーム**
+
 - [ ] 必須項目を空のまま送信するとエラーメッセージが表示される
 - [ ] メールアドレスの形式が不正なときエラーが表示される
 - [ ] 正しく入力すると送信できる
+
+**ログインフォーム**
+
+- [ ] 必須項目を空のまま送信するとエラーメッセージが表示される
+- [ ] メールアドレスの形式が不正なときエラーが表示される
 
 ---
 

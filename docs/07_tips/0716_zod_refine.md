@@ -1,4 +1,4 @@
-# 0715 実装のチップス - refine を使ったバリデーション
+# 0716 実装のチップス - Zod の refine・regex・setValueAs を使った高度なバリデーション
 
 ## refine とは
 

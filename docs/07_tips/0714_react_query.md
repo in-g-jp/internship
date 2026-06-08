@@ -1,4 +1,4 @@
-# 0713 実装のチップス - React Query
+# 0714 実装のチップス - React Query の基本（useQuery / useMutation）
 
 ## React Query とは
 
