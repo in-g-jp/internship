@@ -1,4 +1,4 @@
-# 0702 実装のチップス - Factory と Seeder を使ったテストデータの一括生成
+# 0802 実装のチップス - Factory と Seeder を使ったテストデータの一括生成
 
 ## Factory・Seeder とは
 

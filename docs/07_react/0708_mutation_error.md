@@ -1,4 +1,4 @@
-# 0717 実装のチップス - useMutation の onError を使った API エラーハンドリング
+# 0708 実装のチップス - useMutation の onError を使った API エラーハンドリング
 
 ## API エラーを画面に表示する
 
