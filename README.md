@@ -14,8 +14,11 @@
 | 04 | `docs/04_external_api/` | 外部 API の基礎知識 |
 | 05 | `docs/05_api/` | Laravel を使った API 開発 |
 | 06 | `docs/06_free_system/` | 自由課題システムの作成 |
-| 07 | `docs/07_tips/` | 実装時のヒント集 |
-| 08 | `docs/08_udemy/` | Udemy 講座の視聴ガイド |
+| 07 | `docs/07_react/` | React を使ったフロントエンド開発 |
+| 08 | `docs/08_laravel/` | Laravel を使ったバックエンド開発 |
+| 09 | `docs/09_udemy/` | Udemy 講座の視聴ガイド |
+| 10 | `docs/10_basics/` | 基礎知識（SQL・OpenAPI など） |
+| 11 | `docs/11_maintenance/` | 開発環境の定期メンテナンス |
 
 ---
 
