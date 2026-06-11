@@ -18,14 +18,12 @@ OpenAPI の YAML を手で書くのは大変なため、**Stoplight Studio** と
 
 <https://github.com/stoplightio/studio/releases>
 
-![alt text](image.png)
 タイトル横に緑文字でLatestと記載があることを確認し、stoplight-studio-mac-x64.dmg
 をクリックしてください。
 
 インストールされたアプリを開くと、ログイン画面に遷移します。
 
 ワークスペースの新規作成を行うと、次のようなページに遷移します。
-![alt text](image-1.png)
 
 in-g.jpのメールアドレスを用いて新規登録してください。（workspace名はing-chibaのように任意で作成して問題ないです。）
 
