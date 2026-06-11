@@ -18,6 +18,10 @@ OpenAPI の YAML を手で書くのは大変なため、**Stoplight Studio** と
 
 <https://github.com/stoplightio/studio/releases>
 
+![alt text](image.png)
+タイトルに緑文字でLatestと記載があることを確認し、stoplight-studio-mac-x64.dmg
+をクリックしてください。
+
 ### 使い方
 
 以下の動画を参考にすること。
@@ -33,8 +37,8 @@ OpenAPIはYAMLで書く。YAMLは「インデント（字下げ）で階層を�
 ```yaml
 openapi: 3.0.3
 info:
-  title: User API        # infoの中にtitleがある
-  version: 0.0.1         # infoの中にversionがある
+  title: User API # infoの中にtitleがある
+  version: 0.0.1 # infoの中にversionがある
 ```
 
 インデントが揃っているものは同じ階層。インデントが深いものは、その上のキーに属している。上の例では `title` と `version` は `info` の中にある。
@@ -43,9 +47,9 @@ info:
 
 ```yaml
 servers:
-  - url: 'http://localhost/api'      # 1つ目のサーバー
+  - url: "http://localhost/api" # 1つ目のサーバー
     description: ローカル環境
-  - url: 'https://dev.manchoku.com/api'  # 2つ目のサーバー
+  - url: "https://dev.manchoku.com/api" # 2つ目のサーバー
     description: ステージング環境
 ```
 
@@ -71,15 +75,15 @@ spec/
 ## メインファイルの基本構造
 
 ```yaml
-openapi: 3.0.3        # OpenAPIのバージョン（現在は3.0.3が主流）
+openapi: 3.0.3 # OpenAPIのバージョン（現在は3.0.3が主流）
 info:
   title: User API
   description: ユーザーのAPI
   version: 0.0.1
 servers:
-  - url: 'http://localhost/api'
+  - url: "http://localhost/api"
     description: ローカル環境
-  - url: 'https://dev.manchoku.com/api'
+  - url: "https://dev.manchoku.com/api"
     description: ステージング環境
 paths:
   # ここにエンドポイントを書いていく
@@ -97,24 +101,24 @@ paths:
 
 ```yaml
 paths:
-  /apartments:          # エンドポイントのパス
-    get:                # HTTPメソッド（GET = データを取得する）
-      summary: マンション一覧取得    # 何をするエンドポイントか
-      operationId: get-apartments  # ファイル内で一意なID
+  /apartments: # エンドポイントのパス
+    get: # HTTPメソッド（GET = データを取得する）
+      summary: マンション一覧取得 # 何をするエンドポイントか
+      operationId: get-apartments # ファイル内で一意なID
       tags:
-        - Apartment     # グループ名（ドキュメントの見た目の整理に使う）
+        - Apartment # グループ名（ドキュメントの見た目の整理に使う）
       responses:
-        '200':          # HTTPステータスコード 200 = 成功
+        "200": # HTTPステータスコード 200 = 成功
           description: OK
           content:
-            application/json:   # レスポンスの形式はJSON
+            application/json: # レスポンスの形式はJSON
               schema:
                 type: object
                 properties:
                   data:
                     type: array
                     items:
-                      $ref: ./models/Apartment.yaml  # 別ファイルを参照（後述）
+                      $ref: ./models/Apartment.yaml # 別ファイルを参照（後述）
                   meta:
                     $ref: ./others/Meta.yaml
 ```
@@ -124,32 +128,32 @@ paths:
 `POST /register` で新規ユーザーを登録するエンドポイントの例。GETと違い、リクエストボディ（送信するデータ）の定義が必要になる。
 
 ```yaml
-  /register:
-    post:               # HTTPメソッド（POST = データを作成する）
-      summary: 新規登録
-      operationId: add-user
-      tags:
-        - Register
-      requestBody:      # 送信するデータの定義
-        content:
-          application/json:
-            schema:
-              $ref: ./requests/user/register/RegisterRequest.yaml
-      responses:
-        '200':
-          description: OK
-        '422':
-          $ref: '#/components/responses/422'  # 共通のエラーレスポンスを参照
+/register:
+  post: # HTTPメソッド（POST = データを作成する）
+    summary: 新規登録
+    operationId: add-user
+    tags:
+      - Register
+    requestBody: # 送信するデータの定義
+      content:
+        application/json:
+          schema:
+            $ref: ./requests/user/register/RegisterRequest.yaml
+    responses:
+      "200":
+        description: OK
+      "422":
+        $ref: "#/components/responses/422" # 共通のエラーレスポンスを参照
 ```
 
 ### HTTPメソッドの使い分け
 
-| メソッド | 用途 | operationIdの例 |
-|---|---|---|
-| `get` | データの取得 | `get-apartments` / `show-apartment` |
-| `post` | データの作成 | `add-viewing` |
-| `put` | データの更新 | `update-room` |
-| `delete` | データの削除 | `delete-favorite` |
+| メソッド | 用途         | operationIdの例                     |
+| -------- | ------------ | ----------------------------------- |
+| `get`    | データの取得 | `get-apartments` / `show-apartment` |
+| `post`   | データの作成 | `add-viewing`                       |
+| `put`    | データの更新 | `update-room`                       |
+| `delete` | データの削除 | `delete-favorite`                   |
 
 ---
 
@@ -160,22 +164,22 @@ paths:
 `GET /apartments?page=1&min_price=50000` のように、URLの末尾に `?` で追加する値のこと。
 
 ```yaml
-  /apartments:
-    get:
-      summary: マンション一覧取得
-      parameters:           # パラメータはリストで並べる
-        - name: page        # パラメータ名
-          in: query         # query = クエリパラメータ
-          schema:
-            type: integer
-        - name: min_price
-          in: query
-          schema:
-            type: integer
-        - name: query       # フリーワード検索など
-          in: query
-          schema:
-            type: string
+/apartments:
+  get:
+    summary: マンション一覧取得
+    parameters: # パラメータはリストで並べる
+      - name: page # パラメータ名
+        in: query # query = クエリパラメータ
+        schema:
+          type: integer
+      - name: min_price
+        in: query
+        schema:
+          type: integer
+      - name: query # フリーワード検索など
+        in: query
+        schema:
+          type: string
 ```
 
 ### パスパラメータ（URLに埋め込まれたID）
@@ -183,21 +187,21 @@ paths:
 `GET /apartments/123` のように、URLの一部にIDが入るパターン。`{id}` のように `{}` で囲んで表す。
 
 ```yaml
-  '/apartments/{id}':      # {}で囲んだ部分がパスパラメータ
-    parameters:
-      - name: id
-        in: path           # path = パスパラメータ
-        required: true     # パスパラメータは必ずrequired: trueにする
-        schema:
-          type: integer
-    get:
-      summary: マンション単一取得
-      operationId: show-apartment
-      tags:
-        - Apartment
-      responses:
-        '200':
-          description: OK
+"/apartments/{id}": # {}で囲んだ部分がパスパラメータ
+  parameters:
+    - name: id
+      in: path # path = パスパラメータ
+      required: true # パスパラメータは必ずrequired: trueにする
+      schema:
+        type: integer
+  get:
+    summary: マンション単一取得
+    operationId: show-apartment
+    tags:
+      - Apartment
+    responses:
+      "200":
+        description: OK
 ```
 
 ---
@@ -208,13 +212,13 @@ paths:
 
 ### 型の種類
 
-| type | 意味 | 値の例 |
-|---|---|---|
-| `string` | 文字列 | `"hello"` / `"test@example.com"` |
-| `integer` | 整数 | `42` / `100` |
-| `boolean` | 真偽値 | `true` / `false` |
-| `array` | 配列（複数の値） | `["PUBLIC", "PRIVATE"]` |
-| `object` | オブジェクト（複数のフィールドの集まり） | `{"id": 1, "email": "..."}` |
+| type      | 意味                                     | 値の例                           |
+| --------- | ---------------------------------------- | -------------------------------- |
+| `string`  | 文字列                                   | `"hello"` / `"test@example.com"` |
+| `integer` | 整数                                     | `42` / `100`                     |
+| `boolean` | 真偽値                                   | `true` / `false`                 |
+| `array`   | 配列（複数の値）                         | `["PUBLIC", "PRIVATE"]`          |
+| `object`  | オブジェクト（複数のフィールドの集まり） | `{"id": 1, "email": "..."}`      |
 
 ### シンプルなスキーマ
 
@@ -223,13 +227,13 @@ paths:
 ```yaml
 # spec/requests/user/auth/LoginRequest.yaml
 type: object
-properties:       # このオブジェクトが持つフィールドを列挙する
+properties: # このオブジェクトが持つフィールドを列挙する
   email:
     type: string
-    format: email  # formatを指定すると「メール形式」などの条件を付けられる
+    format: email # formatを指定すると「メール形式」などの条件を付けられる
   password:
     type: string
-required:          # 必須フィールドをリストで書く
+required: # 必須フィールドをリストで書く
   - email
   - password
 ```
@@ -245,7 +249,7 @@ type: object
 properties:
   agent_id:
     type: integer
-  information:        # informationというフィールド自体がオブジェクト
+  information: # informationというフィールド自体がオブジェクト
     type: object
     required:
       - floor
@@ -266,10 +270,10 @@ type: object
 properties:
   schedules:
     type: array
-    minItems: 3     # 最低3件必要
-    maxItems: 3     # 最大3件まで
+    minItems: 3 # 最低3件必要
+    maxItems: 3 # 最大3件まで
     items:
-      type: string  # 配列の中身はstring型
+      type: string # 配列の中身はstring型
 ```
 
 ### nullable（nullを許容する場合）
@@ -279,7 +283,7 @@ properties:
 ```yaml
 date:
   type: string
-  nullable: true    # null が返ってくる可能性がある
+  nullable: true # null が返ってくる可能性がある
 ```
 
 ---
@@ -300,7 +304,7 @@ properties:
     format: email
   is_active:
     type: boolean
-  viewings_count:    # 内見数。データがない場合はnullが返る
+  viewings_count: # 内見数。データがない場合はnullが返る
     type: integer
     nullable: true
 required:
@@ -359,8 +363,8 @@ $ref: ../../../enums/Layout.yaml  # 3つ上の階層（階層が深い場合は 
 ```yaml
 components:
   responses:
-    '422':
-      description: バリデーションエラー    # 送った値が不正だった場合
+    "422":
+      description: バリデーションエラー # 送った値が不正だった場合
       content:
         application/json:
           schema:
@@ -368,7 +372,7 @@ components:
             properties:
               code:
                 type: integer
-                example: 422          # example は具体的な値の例示
+                example: 422 # example は具体的な値の例示
               message:
                 type: string
                 example: 不正なリクエストです。
@@ -381,18 +385,18 @@ components:
   securitySchemes:
     BearerAuth:
       type: http
-      scheme: bearer    # Bearerトークン認証（ログイン後のAPIで使う）
+      scheme: bearer # Bearerトークン認証（ログイン後のAPIで使う）
 
 security:
-  - BearerAuth: []      # このファイルの全エンドポイントにBearerAuth認証を適用
+  - BearerAuth: [] # このファイルの全エンドポイントにBearerAuth認証を適用
 ```
 
 エンドポイント側では以下のように参照する。
 
 ```yaml
 responses:
-  '422':
-    $ref: '#/components/responses/422'
+  "422":
+    $ref: "#/components/responses/422"
 ```
 
 ---
