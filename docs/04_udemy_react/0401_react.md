@@ -15,17 +15,17 @@
 
 ## 取り組む章
 
-| セクション名                                              | 扱い                                       | 動画時間     |
-| --------------------------------------------------------- | ------------------------------------------ | ------------ |
-| Section 1: はじめに                                       | 必須                                       | 10 分        |
-| Section 3: 【スキップ可】Reactで頻出のJavaScriptの記法   | 任意（分からない文法が出てきたら適宜確認） | 1 時間 27 分 |
-| Section 4: まずはReactに触れてみよう                      | 必須                                       | 2 時間 7 分  |
-| Section 5: イベントリスナと状態管理（State）              | 必須                                       | 1 時間 41 分 |
-| Section 6: 制御構文とフォームの制御                       | 必須                                       | 1 時間 33 分 |
-| Section 11: 【React Hooks】様々な状態管理の方法           | 必須                                       | 2 時間       |
-| Section 12: 【React Hooks】useEffectとカスタムフック      | 必須（API 通信の前提知識）                 | 58 分        |
+| セクション名                                           | 扱い                                       | 動画時間     |
+| ------------------------------------------------------ | ------------------------------------------ | ------------ |
+| Section 1: はじめに                                    | 必須                                       | 10 分        |
+| Section 3: 【スキップ可】Reactで頻出のJavaScriptの記法 | 任意（分からない文法が出てきたら適宜確認） | 1 時間 27 分 |
+| Section 4: まずはReactに触れてみよう                   | 必須                                       | 2 時間 7 分  |
+| Section 5: イベントリスナと状態管理（State）           | 必須                                       | 1 時間 41 分 |
+| Section 6: 制御構文とフォームの制御                    | 必須                                       | 1 時間 33 分 |
+| Section 11: 【React Hooks】様々な状態管理の方法        | 必須                                       | 2 時間       |
+| Section 12: 【React Hooks】useEffectとカスタムフック   | 必須（API 通信の前提知識）                 | 58 分        |
 
-> **合計動画時間：約 8 時間 30 分**（Section 3 を除くと約 7 時間）
+> **合計動画時間：約 8 時間 30 分**
 
 ---
 
@@ -150,29 +150,6 @@ const Counter = () => {
 
 ---
 
-### Lifting State Up（状態の引き上げ）
-
-複数の子コンポーネントが同じ State を参照・更新する必要があるとき、**State を共通の親コンポーネントに移動する**パターンです。Tic-Tac-Toe ではこの設計が必要になります。
-
-```tsx
-// ❌ 各マスが独立して State を持つと、盤面全体の状態を管理できない
-const Square = () => {
-  const [value, setValue] = useState("");
-  // ...
-};
-
-// ✅ 親（Board）が一元管理し、子（Square）に Props として渡す
-const Board = () => {
-  const [squares, setSquares] = useState(Array(9).fill(""));
-
-  return squares.map((value, i) => (
-    <Square key={i} value={value} onSelect={() => handleSelect(i)} />
-  ));
-};
-```
-
----
-
 ### useEffect
 
 **useEffect** は、コンポーネントのレンダリング後に**副作用（データ取得・タイマーなど）を実行する**フックです。
@@ -204,14 +181,7 @@ const UserList = () => {
 
 ## チェックリスト
 
-- [ ] Udemy Section 1 を完了した
-- [ ] Udemy Section 4 を完了した
-- [ ] Udemy Section 5 を完了した
-- [ ] Udemy Section 6 を完了した（Tic-Tac-Toe 完成）
-- [ ] Udemy Section 12（useEffect）を完了した
 - [ ] JSX とは何か説明できる
 - [ ] コンポーネントを自分で定義して使える
 - [ ] Props を使って親から子へデータを渡せる
 - [ ] `useState` を使って State を更新できる
-- [ ] Lifting State Up の意味を説明できる
-- [ ] Tic-Tac-Toe を GitHub に Push して提出できた
