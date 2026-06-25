@@ -129,14 +129,90 @@ const CreateUserForm = () => {
 
 ---
 
+## 5. エラーハンドリング（onError）
+
+`useMutation` の `onError` コールバックを使うと、API のエラーレスポンスを受け取って
+画面にエラーメッセージを表示できます。
+
+```tsx
+import { useMutation } from '@tanstack/react-query'
+import { useState } from 'react'
+
+const [errorMessage, setErrorMessage] = useState<string | null>(null)
+
+const { mutate, isPending } = useMutation({
+    mutationFn: submitForm,
+    onError: (error: unknown) => {
+        if (error instanceof Error) {
+            setErrorMessage(error.message)
+        } else {
+            setErrorMessage('エラーが発生しました。')
+        }
+    },
+    onSuccess: () => {
+        setErrorMessage(null)
+        // 成功時の処理（画面遷移など）
+    },
+})
+
+return (
+    <form onSubmit={handleSubmit((data) => mutate(data))}>
+        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+        <button type="submit" disabled={isPending}>
+            {isPending ? '送信中...' : '送信する'}
+        </button>
+    </form>
+)
+```
+
+---
+
+## 6. Laravel のバリデーションエラー（422）を表示する
+
+Laravel が 422 を返すとき、レスポンスの形式は以下のようになっています。
+
+```json
+{
+    "message": "The given data was invalid.",
+    "errors": {
+        "email": ["メールアドレスの形式が正しくありません。"]
+    }
+}
+```
+
+`axios` を使っている場合は `error.response.data` でこの内容を取得できます。
+
+```tsx
+import axios from 'axios'
+
+const { mutate } = useMutation({
+    mutationFn: submitForm,
+    onError: (error: unknown) => {
+        if (axios.isAxiosError(error) && error.response?.status === 422) {
+            const errors = error.response.data.errors as Record<string, string[]>
+            const messages = Object.values(errors).flat()
+            setErrorMessage(messages.join('\n'))
+        } else {
+            setErrorMessage('エラーが発生しました。')
+        }
+    },
+})
+```
+
+---
+
 ## チェックリスト
 
 - [ ] `QueryClientProvider` でアプリ全体をラップできる
 - [ ] `useQuery` で API からデータを取得して表示できる
 - [ ] `useMutation` でデータを送信し、成功後に一覧を更新できる
+- [ ] `onError` でエラーメッセージを画面に表示できる
+- [ ] Laravel の 422 エラーのフィールドごとのメッセージを取り出せる
 
 ---
 
 ## 参考資料
 
 - [TanStack Query 公式ドキュメント](https://tanstack.com/query/latest)
+- [TanStack Query - useMutation](https://tanstack.com/query/latest/docs/framework/react/reference/useMutation)
+- [Axios - エラーハンドリング](https://axios-http.com/ja/docs/handling_errors)
