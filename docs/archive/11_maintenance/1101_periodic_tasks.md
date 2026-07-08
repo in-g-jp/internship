@@ -30,13 +30,6 @@ brew update && brew upgrade && brew autoremove && brew cleanup --prune=all && br
 
 ## Node.js のマイナーアップデート
 
-nvm で現在利用中のメジャーバージョン内の最新版をインストールする。
-`--reinstall-packages-from=current` を付けると npm グローバルパッケージが新バージョンへ引き継がれる。
-
-```bash
-nvm install <major-version> --reinstall-packages-from=current && nvm alias default <major-version>
-```
-
 例（22系の場合）:
 
 ```bash
