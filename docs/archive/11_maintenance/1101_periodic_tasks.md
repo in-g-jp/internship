@@ -25,7 +25,7 @@ composer global update
 ## Homebrew の更新
 
 ```bash
-brew update && brew upgrade && brew autoremove && brew cleanup --prune=all && brew doctor
+brew update && brew upgrade -y && brew autoremove && brew cleanup --prune=all && brew doctor
 ```
 
 ## Node.js のマイナーアップデート
