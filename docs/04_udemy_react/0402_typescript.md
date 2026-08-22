@@ -1,4 +1,4 @@
-# 0106 React TypeScript　
+# 0402 React TypeScript
 
 ## この章の取り組み方
 

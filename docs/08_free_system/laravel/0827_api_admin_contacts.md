@@ -1,4 +1,4 @@
-# 0808 実装のチップス - 管理者用お問い合わせ一覧 API（GET /api/admin/contacts・認証必要）
+# 0827 実装のチップス - 管理者用お問い合わせ一覧 API（GET /api/admin/contacts・認証必要）
 
 ## エンドポイント
 

@@ -15,7 +15,7 @@
 | 05 | `docs/05_external_api/` | REST API の基礎と外部 API の呼び出し |
 | 06 | `docs/06_api/` | Laravel と Sail で API を作る |
 | 07 | `docs/07_udemy_laravel/` | Udemy で Laravel を学ぶ（視聴順ガイド） |
-| 08 | `docs/08_free_system/` | 自由課題システムの作成。実装のチップスは `laravel/` と `react/` |
+| 08 | `docs/08_free_system/` | 自由課題システムの作成（`0801`〜）。実装のチップスは `react/`（`0810`〜）と `laravel/`（`0820`〜） |
 | － | `docs/archive/` | 過去の課題（SQL の基本・OpenAPI 基礎・定期メンテナンス） |
 
 ---
