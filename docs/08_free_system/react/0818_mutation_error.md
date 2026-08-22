@@ -1,4 +1,4 @@
-# 0708 実装のチップス - useMutation の onError を使った API エラーハンドリング
+# 0818 実装のチップス - useMutation の onError を使った API エラーハンドリング
 
 ## API エラーを画面に表示する
 
@@ -84,7 +84,7 @@ const { mutate } = useMutation({
 
 ---
 
-成功後のキャッシュ更新（`invalidateQueries`）については [0713 React Query](./0713_react_query.md) を参照してください。
+成功後のキャッシュ更新（`invalidateQueries`）については [0814 React Query](./0814_react_query.md) を参照してください。
 
 ---
 

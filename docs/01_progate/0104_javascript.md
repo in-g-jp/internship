@@ -1,4 +1,4 @@
-# 0105 JavaScript (ES6)
+# 0104 JavaScript (ES6)
 
 ## コース
 
