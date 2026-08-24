@@ -9,7 +9,7 @@
 
 ## コース
 
-[React - The Complete Guide（Udemy）](https://www.udemy.com/course/react-complete-guide/?couponCode=V3JPLETSLEARN)
+[React - The Complete Guide（Udemy）](https://www.udemy.com/course/react-complete-guide/)
 
 ---
 

@@ -62,7 +62,7 @@ info:
 servers:
   - url: "http://localhost/api" # 1つ目のサーバー
     description: ローカル環境
-  - url: "https://dev.manchoku.com/api" # 2つ目のサーバー
+  - url: "https://staging.example.com/api" # 2つ目のサーバー
     description: ステージング環境
 ```
 
@@ -96,7 +96,7 @@ info:
 servers:
   - url: "http://localhost/api"
     description: ローカル環境
-  - url: "https://dev.manchoku.com/api"
+  - url: "https://staging.example.com/api"
     description: ステージング環境
 paths:
   # ここにエンドポイントを書いていく
